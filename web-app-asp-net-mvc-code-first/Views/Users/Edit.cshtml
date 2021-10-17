@@ -1,0 +1,13 @@
+﻿@using web_app_asp_net_mvc_code_first.Models.Entities
+@model User
+
+<h3>Пользователь</h3>
+
+@using (Html.BeginForm("Edit", "Users", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary()
+    @Html.EditorForModel()
+
+    <input type="submit" value="Сохранить" />
+    @Html.ActionLink("Отменить", "Index", "Users")
+}

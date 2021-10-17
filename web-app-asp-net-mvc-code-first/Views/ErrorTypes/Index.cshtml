@@ -1,0 +1,33 @@
+﻿@using web_app_asp_net_mvc_code_first.Models.Entities
+@model List<ErrorType>
+
+<h3>Типы ошибок</h3>
+
+@Html.ActionLink("Добавить запись", "Create", "ErrorTypes")
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>
+                Тип ошибки
+            </th>
+            <th>
+                Действия
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var errorType in Model)
+        {
+            <tr>
+                <td>
+                    @errorType.Type
+                </td>
+                <td>
+                    @Html.ActionLink("Удалить", "Delete", "ErrorTypes", new { id = errorType.Id }, new { })
+                    @Html.ActionLink("Изменить", "Edit", "ErrorTypes", new { id = errorType.Id }, new { })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

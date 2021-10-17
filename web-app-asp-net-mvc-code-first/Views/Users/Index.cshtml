@@ -1,0 +1,39 @@
+﻿@using web_app_asp_net_mvc_code_first.Models.Entities
+@model List<User>
+
+<h3>Пользователи</h3>
+
+@Html.ActionLink("Добавить запись", "Create", "Users")
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>
+                Имя пользователя
+            </th>
+            <th>
+                Гендер
+            </th>
+            <th>
+                Действия
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+        <tr>
+            <td>
+                @user.Name
+            </td>
+            <td>
+                @user.Gender
+            </td>
+            <td>
+                @Html.ActionLink("Удалить", "Delete", "Users", new { id = user.Id }, new { })
+                @Html.ActionLink("Изменить", "Edit", "Users", new { id = user.Id }, new { })
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
